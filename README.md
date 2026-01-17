@@ -1,201 +1,179 @@
-# 🤖 Chatbot Platform – Software Engineer Intern Assignment
+# 🤖 Chatbot Platform
 
-A full-stack AI chatbot platform where users can create projects, configure agents with custom prompts, and interact with an AI model.  
-The system stores chat history and supports project-based isolation.
-
----
-
-## 📌 Overview
-
-This project demonstrates a **production-style chatbot architecture** using a modern tech stack.  
-It includes authentication, database persistence, AI integration, and a simple frontend UI.
+A **full‑stack chatbot application** built using **React (Vite)** for the frontend and **Node.js + Express** for the backend. The project demonstrates API integration, client–server communication, and basic authentication logic on the backend.
 
 ---
 
-## 🛠 Tech Stack
+## 📌 Features
 
-### Frontend
-- ⚛️ React (Vite)
-- 🌐 Fetch API
-- 🎨 Simple UI for chat interaction
+### ✅ Frontend
 
-### Backend
-- 🟢 Node.js
-- 🚀 Express.js
-- 🧬 Prisma ORM
-- 🐘 PostgreSQL
-- 🤖 OpenRouter AI API
-- 🔐 JWT Authentication
+* Built with **React + Vite**
+* Simple and clean chatbot UI
+* User can type a question and receive AI responses
+* Communicates with backend using `fetch` API
 
----
+### ✅ Backend
 
-## ✨ Features
-
-- User authentication using JWT
-- Project-based chatbot system
-- Agent configuration with custom system prompts
-- AI-powered responses
-- Chat history stored in PostgreSQL
-- Clean REST API architecture
+* Built with **Node.js & Express**
+* REST API for chatbot communication
+* `/api/chats` endpoint to handle chat messages
+* **Login & Signup functionality implemented in backend** (not yet integrated with frontend)
+* Uses environment variables for configuration
 
 ---
 
-## 🧱 Architecture
+## 🏗️ Project Structure
 
-# 🤖 Chatbot Platform – Software Engineer Intern Assignment
-
-A full-stack AI chatbot platform where users can create projects, configure agents with custom prompts, and interact with an AI model.  
-The system stores chat history and supports project-based isolation.
-
----
-
-## 📌 Overview
-
-This project demonstrates a **production-style chatbot architecture** using a modern tech stack.  
-It includes authentication, database persistence, AI integration, and a simple frontend UI.
-
----
-
-## 🛠 Tech Stack
-
-### Frontend
-- ⚛️ React (Vite)
-- 🌐 Fetch API
-- 🎨 Simple UI for chat interaction
-
-### Backend
-- 🟢 Node.js
-- 🚀 Express.js
-- 🧬 Prisma ORM
-- 🐘 PostgreSQL
-- 🤖 OpenRouter AI API
-- 🔐 JWT Authentication
-
----
-
-## ✨ Features
-
-- User authentication using JWT
-- Project-based chatbot system
-- Agent configuration with custom system prompts
-- AI-powered responses
-- Chat history stored in PostgreSQL
-- Clean REST API architecture
-
----
-
-## 🧱 Architecture
-
-Frontend (React)
-|
-| HTTP (JSON)
-↓
-Backend (Express + Prisma)
-|
-↓
-PostgreSQL Database
-|
-↓
-OpenRouter AI API
-
-
-**Flow:**
-1. User sends a message from the frontend
-2. Backend validates user, project, and agent
-3. System prompts are combined
-4. Message is sent to OpenRouter
-5. AI response is stored in database
-6. Response is returned to frontend
-
----
-
-## 🗂 Project Structure
-
+```
 chatbot-platform/
 │
 ├── backend/
-│ ├── src/
-│ │ ├── controllers/
-│ │ ├── routes/
-│ │ ├── middleware/
-│ │ └── utils/
-│ ├── prisma/
-│ └── server.js
+│   ├── routes/
+│   ├── controllers/
+│   ├── server.js
+│   ├── package.json
+│   └── .env
 │
 ├── frontend/
-│ ├── src/
-│ └── App.jsx
+│   ├── src/
+│   ├── public/
+│   ├── index.html
+│   ├── vite.config.js
+│   └── package.json
 │
+├── .gitignore
 └── README.md
-
+```
 
 ---
 
-## ▶️ How to Run the Application (Local Setup)
+## ⚙️ Tech Stack
 
-### 1️⃣ Backend Setup
+* **Frontend:** React, Vite, JavaScript, HTML, CSS
+* **Backend:** Node.js, Express.js
+* **Tools:** Git, GitHub, Postman, VS Code
+* **Deployment:** Vercel (Frontend)
+
+---
+
+## 🚀 How to Run the Application Locally
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/Labqari/chatbot-platform.git
+cd chatbot-platform
+```
+
+---
+
+### 2️⃣ Run Backend
 
 ```bash
 cd backend
 npm install
-npm run dev
+npm start
+```
 
-Backend will run at:
-http://localhost:5000
+* Backend runs on: **[http://localhost:5000](http://localhost:5000)**
 
-### 2️⃣ Frontend Setup
+---
+
+### 3️⃣ Run Frontend
+
+```bash
 cd frontend
 npm install
 npm run dev
+```
 
-Front-end will run at:
-http://localhost:5173
+* Frontend runs on: **[http://localhost:5173](http://localhost:5173)**
 
-🌐 Hosted Frontend Demo
+---
 
-The frontend UI is deployed on Vercel:
+## 🔗 API Endpoint
 
-🔗 Live Demo:
-https://chatbot-platform-two.vercel.app
+### Chat API
 
-⚠️ Note:
-The backend is intentionally kept local for this assignment.
-A full working demo (frontend + backend + database) is shown in the demo video.
+```http
+POST /api/chats
+```
 
-Backend (.env)
-DATABASE_URL=postgresql://username:password@localhost:5432/chatbot_db
-JWT_SECRET=your_jwt_secret
-OPENROUTER_API_KEY=your_openrouter_api_key
+**Request Body:**
 
-Frontend (.env)
-VITE_API_URL=http://localhost:5000
+```json
+{
+  "message": "Hello"
+}
+```
+
+**Response:**
+
+```json
+{
+  "reply": "Hi! How can I help you?"
+}
+```
+
+---
+
+## 🔐 Authentication (Backend Only)
+
+* **Signup API implemented**
+* **Login API implemented**
+* Authentication logic is fully working on backend
+* ❌ Frontend integration is **not yet completed**
+
+---
+
+## 🌐 Deployment
+
+* **Frontend deployed on Vercel**
+* Backend tested locally using Postman
+* API base URL updated for deployment
+
+> ⚠️ Note: Backend is not publicly hosted yet; demo video shows full working using local backend.
+
+---
+
+## 🎥 Demo Video
+
+* Demo video demonstrates:
+
+  * Frontend chatbot interaction
+  * Backend API working locally
+  * Chat responses in real time
+
+---
+
+## 📄 Architecture & Design Explanation
+
+* **Client–Server Architecture**
+* Frontend sends user input to backend via REST API
+* Backend processes input and returns AI response
+* Separation of concerns between UI and business logic
+
+---
+
+## 🧑‍💻 Author
+
+**Abqari Laraib**
+B.Tech – Information Technology
+Aspiring Software Engineer
+
+---
+
+## ⭐ Future Improvements
+
+* Integrate login & signup UI in frontend
+* Add authentication middleware
+* Improve chatbot UI/UX
+* Deploy backend publicly
+
+---
+
+✅ *This project was built as part of an internship assignment submission.*
 
 
-🎥 Demo Video
 
-The demo video demonstrates:
-
-Backend running locally
-
-Frontend chat interaction
-
-AI responses
-
-Database persistence using PostgreSQL
-
-✅ Assignment Status
-
-✔ Backend complete
-
-✔ Frontend complete
-
-✔ AI integration working
-
-✔ Database schema finalized
-
-✔ Clean and scalable architecture
-
-👤 Author
-
-Abqari Laraib
-Software Engineer Intern Applicant
